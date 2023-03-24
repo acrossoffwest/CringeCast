@@ -115,10 +115,10 @@ def serve_favicon():
 @app.route('/v2/say', methods = ['POST', 'GET'])
 def sayV2():
     if request.method == 'GET':
-        text = request.args.get('text', type=str)
+        text = request.args.get('query', type=str)
     else:
         form = request.json
-        text = form['text']
+        text = form['query']
     shell_wrappers.speak(text, "en")
     return f'OK: {text}'
 
