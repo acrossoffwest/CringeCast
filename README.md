@@ -48,3 +48,16 @@ First of all we need install `pulseaudio`
 Usually, PulseAudio will listen on port 4713, but double-check the listening channel with:
     
     lsof -i -P | grep -i "listen"
+
+# Runnin CringeCast with docker on Raspberry PI xD
+
+Add at the end of file `/etc/pulse/default.pa` add line below:
+
+    load-module module-native-protocol-tcp
+
+Run commands
+
+    pulseaudio -k
+    pulseaudio --start
+
+In `docker/.env` file change value for `PULSE_SERVER` to `172.17.0.1`
