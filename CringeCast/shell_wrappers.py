@@ -64,8 +64,8 @@ def play_file(filename_no_ext:str) -> None:
     else:
         script_name = "play.sh"
 
-    # print("Calling command:" + command)
-    subprocess.run([f"{shell_utils_dir}/{script_name}", f"audio_files/{filename_sane}"])
+    command = f'sh {shell_utils_dir}/{script_name} "audio_files/{filename_sane}"'
+    os.system(command)
 
 def kill() -> None:
     os.system(f'{shell_utils_dir}/kill.sh')
