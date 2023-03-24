@@ -7,6 +7,6 @@ services:
     volumes:
       - ~/.config/pulse:/root/.config/pulse
     environment:
-      - PULSE_SERVER=host.docker.internal
+      - PULSE_SERVER=${PULSE_SERVER}
     ports:
       - "${APP_PORT}:42069"

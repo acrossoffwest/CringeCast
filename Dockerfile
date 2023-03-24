@@ -2,7 +2,7 @@ FROM python:3.12.0a6-alpine3.16
 
 WORKDIR /python-docker
 
-RUN apk add --no-cache pulseaudio alsa-utils alsa-plugins-pulse mpg123
+RUN apk add --no-cache pulseaudio alsa-utils alsa-plugins-pulse mpg123 pulseaudio-module-zeroconf
 
 ENV PULSE_SERVER=host.docker.internal
 
