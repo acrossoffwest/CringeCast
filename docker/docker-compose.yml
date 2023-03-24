@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    image: cringecast:latest
+    build: ../
+    volumes:
+      - ~/.config/pulse:/root/.config/pulse
+    environment:
+      - PULSE_SERVER=host.docker.internal
+    ports:
+      - "${APP_PORT}:42069"

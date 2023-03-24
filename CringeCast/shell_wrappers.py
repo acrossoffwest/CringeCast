@@ -8,7 +8,7 @@ import subprocess
 is_arm = "arm" in platform.processor()
 print(f"is arm {is_arm}")
 
-shell_utils_dir = "CringeCast/shellscripts"
+shell_utils_dir = os.path.dirname(os.path.dirname(__file__)) + "/CringeCast/shellscripts"
 
 
 config = {
@@ -38,7 +38,7 @@ def speak_single_sentence(sentence_sane:str, lang_sane:str="en") -> None:
     else:
         script_name = "speak.sh"
 
-    command = f'{shell_utils_dir}/{script_name} "{sentence_sane}" {lang_sane}'
+    command = f'sh {shell_utils_dir}/{script_name} "{sentence_sane}" {lang_sane}'
     # print("Calling command:" + command)
     os.system(command)
 

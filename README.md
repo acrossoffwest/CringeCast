@@ -34,3 +34,17 @@ I also added volume bar at some point, when you run it on your PC, you can chang
 But the trolling functionality wasn't sophisticated enough yet - we needed a capability to play mp3 files, I added it with rather ease, but someone wanted a way to upload their own files too. And so it happend, my friend added that, creating a first real PR to my own project \*_\*
 
 Keep in mind, the project synthesizes **anything** that gets requested - meaning that sometimes you may hear you device saying `robots.txt`, `favicon.ico` (this one is detected as spanish, which is even funnier), or random phrases containing "PHP-something", which are just webcrawlers looking for unsecured wordpress websites.
+
+# Running CringeCast with docker on Mac
+
+First of all we need install `pulseaudio`
+
+    brew install pulseaudio
+
+ and run daemon
+ 
+    pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
+
+Usually, PulseAudio will listen on port 4713, but double-check the listening channel with:
+    
+    lsof -i -P | grep -i "listen"
