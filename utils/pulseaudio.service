@@ -4,7 +4,7 @@ Description=PulseAudio Daemon
 [Service]
 Type=simple
 ExecStart=/usr/bin/pulseaudio --daemonize=no --realtime --log-target=syslog
-User=%i
+User=1000
 Restart=always
 RestartSec=5
 
